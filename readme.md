@@ -19,12 +19,12 @@ node server
 Save the secrets in a .env file.
 To run this app locally you'll need to connect to a PostgreSQL database and save the secrets in the env file
 
-DB_URI = "postgres://USER_ID:PASSWORD@URL/DB"
-save the above value in your .env file 
-USER_ID : user id for your postgreSQL database
-PASSWORD: password for your postgreSQL database
-URL: url to connect to your database. (for local it'll be http://localhost:[PORT]) where PORT is the port number in which Postgres server is running
-DB: Name of your Database. (default name is postgres)
+DB_URI = "postgres://USER_ID:PASSWORD@URL/DB"  
+save the above value in your .env file   
+USER_ID : user id for your postgreSQL database  
+PASSWORD: password for your postgreSQL database  
+URL: url to connect to your database. (for local it'll be http://localhost:[PORT]) where PORT is the port number in which Postgres server is running  
+DB: Name of your Database. (default name is postgres)  
 
 ## Setup PostgreSQL locally
 
