@@ -1,6 +1,7 @@
 # Food Delivery App
 Backend Service to calculate the cost offood delivery based on various factors.
 ## API
+this app is hosted in render.com
 API URL -> https://food-delivery-app-1v5h.onrender.com/api
 
 ## Installation
@@ -69,7 +70,6 @@ Now insert some values into the database.
 
 #ITEM Table
 ```sql
-CREATE TABLE item (
 INSERT INTO item ("type", description) VALUES('perishable', 'Blueberries');
 INSERT INTO item ("type", description) VALUES('perishable', 'Pork Chops');
 INSERT INTO item ("type", description) VALUES('perishable', 'Lettuce');
@@ -116,7 +116,6 @@ INSERT INTO organization ("name") VALUES('Dynamic Ventures');
 ```
 #PRICING Table
 ```sql
-CREATE TABLE pricing (
 INSERT INTO pricing (organization_id, item_id, "zone", base_distance_in_kms, km_price, fix_price) VALUES(1, 11, 'central', 10, 150, 5000);
 INSERT INTO pricing (organization_id, item_id, "zone", base_distance_in_kms, km_price, fix_price) VALUES(2, 14, 'central', 10, 150, 6000);
 INSERT INTO pricing (organization_id, item_id, "zone", base_distance_in_kms, km_price, fix_price) VALUES(3, 17, 'central', 5, 150, 2000);
