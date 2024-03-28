@@ -34,7 +34,7 @@ async function getPrice(obj, res) {
             price = fix_price + (km_price * (obj.total_distance - base_distance_in_kms));
         else price = fix_price;
 
-        res.status(200).send({ "price": convertToDollers(price)});
+        res.status(200).send({ "total_price": convertToDollers(price)});
     } catch (e) {
         console.log(e.message);
         if (e.message.includes("ORG ERROR"))
