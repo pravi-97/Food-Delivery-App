@@ -10,6 +10,28 @@ function convertToDollers(price){
 }
 async function getPrice(obj, res) {
     try {
+        let error = "";
+        if (obj.zone == "" || obj.zone == undefined){
+                error+= "zone is a required field";
+        }
+        if (obj.organization_id == "" || obj.organization_id == undefined) {
+            if(error != "")
+                error += ", ";
+            error += "organization_id is a required field";
+        }
+        if (obj.total_distance == "" || obj.total_distance == undefined) {
+            if (error != "")
+                error += ", ";
+            error += "total_distance is a required field";
+        }
+        if (obj.item_type == "" || obj.item_type == undefined) {
+            if (error != "")
+                error += ", ";
+            error += "item_type is a required field. (should be either 'perishable' or 'non-perishable')";
+        }
+        if(error.trim() != ""){
+            throw Error(error);
+        }
         const result1 = await pool.query("SELECT * from pricing where zone = $1 and organization_id = $2 ",
             [obj.zone, obj.organization_id]);
 
@@ -36,7 +58,7 @@ async function getPrice(obj, res) {
 
         res.status(200).send({ "total_price": convertToDollers(price)});
     } catch (e) {
-        console.log(e.message);
+        console.error(e.message);
         if (e.message.includes("ORG ERROR"))
             res.status(404).send({"ErrorMessage" : e.message.replace("ORG ERROR - ", "")});
         else if (e.message.includes("TYPE NOT FOUND"))
